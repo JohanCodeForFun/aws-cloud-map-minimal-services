@@ -1,0 +1,25 @@
+{
+  "name": "cloud-map-minimal-services",
+  "private": true,
+  "workspaces": [
+    "services/*",
+    "infra"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "bootstrap": "cdk bootstrap",
+    "synth": "cdk synth",
+    "deploy": "cdk deploy --require-approval never",
+    "destroy": "cdk destroy --force",
+    "seed:user": "node scripts/seed-user.mjs"
+  },
+  "dependencies": {
+    "@aws-sdk/client-cloudformation": "^3.670.0",
+    "@aws-sdk/client-dynamodb": "^3.670.0"
+  },
+  "devDependencies": {
+    "aws-cdk": "2.1118.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
